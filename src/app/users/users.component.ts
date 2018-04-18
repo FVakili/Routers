@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-users',
@@ -8,13 +8,13 @@ import { Router } from '@angular/router';
 })
 export class UsersComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
   }
 
   onClick() {
-    this.router.navigate(['/accounts']);
+    this.router.navigate(['/accounts'], {relativeTo: this.route});
   }
 
 }
