@@ -7,7 +7,7 @@ import { HomeComponent } from './home/home.component';
 import { AccountsComponent } from './accounts/accounts.component';
 import { UsersComponent } from './users/users.component';
 import { EditUserComponent } from './users/edit-user/edit-user.component';
-import { UserComponent } from './user/user.component';
+import { UserComponent } from './users/user/user.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent},
