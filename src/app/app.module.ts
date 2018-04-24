@@ -8,12 +8,14 @@ import { AccountsComponent } from './accounts/accounts.component';
 import { UsersComponent } from './users/users.component';
 import { EditUserComponent } from './users/edit-user/edit-user.component';
 import { UserComponent } from './users/user/user.component';
+import { EditAccountComponent } from './accounts/edit-account/edit-account.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent},
   { path: 'users', component: UsersComponent},
   { path: 'users/:id/:name', component: UserComponent},
-  { path: 'accounts', component: AccountsComponent}
+  { path: 'accounts', component: AccountsComponent},
+  { path: 'accounts/:id/edit', component: EditAccountComponent}
 ];
 
 @NgModule({
@@ -23,7 +25,8 @@ const routes: Routes = [
     AccountsComponent,
     UsersComponent,
     EditUserComponent,
-    UserComponent
+    UserComponent,
+    EditAccountComponent
   ],
   imports: [
     BrowserModule,
