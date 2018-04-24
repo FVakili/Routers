@@ -7,10 +7,12 @@ import { HomeComponent } from './home/home.component';
 import { AccountsComponent } from './accounts/accounts.component';
 import { UsersComponent } from './users/users.component';
 import { EditUserComponent } from './users/edit-user/edit-user.component';
+import { UserComponent } from './user/user.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent},
   { path: 'users', component: UsersComponent},
+  { path: 'users/:id/:name', component: UserComponent},
   { path: 'accounts', component: AccountsComponent}
 ];
 
@@ -20,7 +22,8 @@ const routes: Routes = [
     HomeComponent,
     AccountsComponent,
     UsersComponent,
-    EditUserComponent
+    EditUserComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,
