@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { query } from '@angular/core/src/animation/dsl';
+
 
 @Component({
   selector: 'app-edit-account',
@@ -7,9 +10,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EditAccountComponent implements OnInit {
 
-  constructor() { }
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
+    // console.log(this.route.snapshot.queryParams);
+    // console.log(this.route.snapshot.fragment);
+    this.route.queryParams.subscribe(
+      (query) => {
+        console.log(query);
+      });
   }
 
 }

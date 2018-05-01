@@ -9,6 +9,7 @@ import { UsersComponent } from './users/users.component';
 import { EditUserComponent } from './users/edit-user/edit-user.component';
 import { UserComponent } from './users/user/user.component';
 import { EditAccountComponent } from './accounts/edit-account/edit-account.component';
+import {UsersService} from './users/users.service';
 
 const routes: Routes = [
   { path: '', component: HomeComponent},
@@ -32,7 +33,7 @@ const routes: Routes = [
     BrowserModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
