@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
+import { IUser } from '../user';
 
 @Injectable()
-export class Users.Service {
+export class UserService {
 
   users: IUser[] = [
     {id: 1, name: 'Faezeh'},
@@ -11,11 +12,11 @@ export class Users.Service {
 
   constructor() { }
 
-  getUsers(){
-    return.this.users;
+  getUsers() {
+    return this.users;
   }
 
-  getUser(id: number){
+  getUser(id: number) {
     const user = this.users.find(
       (u) => {
         return u.id === id;

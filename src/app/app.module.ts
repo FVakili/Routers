@@ -9,12 +9,12 @@ import { UsersComponent } from './users/users.component';
 import { EditUserComponent } from './users/edit-user/edit-user.component';
 import { UserComponent } from './users/user/user.component';
 import { EditAccountComponent } from './accounts/edit-account/edit-account.component';
-import {UsersService} from './users/users.service';
+import {UserService} from './users/user.service';
 
 const routes: Routes = [
   { path: '', component: HomeComponent},
   { path: 'users', component: UsersComponent},
-  { path: 'users/:id/:name', component: UserComponent},
+  { path: 'users/:id', component: UserComponent},
   { path: 'accounts', component: AccountsComponent},
   { path: 'accounts/:id/edit', component: EditAccountComponent}
 ];
