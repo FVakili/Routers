@@ -13,6 +13,8 @@ import { EditAccountComponent } from './accounts/edit-account/edit-account.compo
 import {UserService} from './users/user.service';
 import { Notfound404Component } from './notfound-404/notfound-404.component';
 import { AppRoutingModule } from './app-routing.module';
+import { AuthGuard } from './auth-guard.service';
+import { LoginService } from './login-service.service';
 
 // const routes: Routes = [
 //   { path: '', component: HomeComponent},
@@ -44,7 +46,7 @@ import { AppRoutingModule } from './app-routing.module';
     //RouterModule.forRoot(routes)
     AppRoutingModule
   ],
-  providers: [UserService],
+  providers: [UserService, AuthGuard, LoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
