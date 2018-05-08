@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule} from '@angular/forms';
 import {Routes , RouterModule} from '@angular/router';
 
 import { AppComponent } from './app.component';
@@ -13,8 +14,10 @@ import {UserService} from './users/user.service';
 
 const routes: Routes = [
   { path: '', component: HomeComponent},
-  { path: 'users', component: UsersComponent},
-  { path: 'users/:id', component: UserComponent},
+  { path: 'users', component: UsersComponent, children: [
+    { path: ':id', component: UserComponent},
+    { path: ':id/edit', component: EditUserComponent }
+  ]},
   { path: 'accounts', component: AccountsComponent},
   { path: 'accounts/:id/edit', component: EditAccountComponent}
 ];
@@ -31,6 +34,7 @@ const routes: Routes = [
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     RouterModule.forRoot(routes)
   ],
   providers: [UserService],
