@@ -11,16 +11,21 @@ import { EditUserComponent } from './users/edit-user/edit-user.component';
 import { UserComponent } from './users/user/user.component';
 import { EditAccountComponent } from './accounts/edit-account/edit-account.component';
 import {UserService} from './users/user.service';
+import { Notfound404Component } from './notfound-404/notfound-404.component';
+import { AppRoutingModule } from './app-routing.module';
 
-const routes: Routes = [
-  { path: '', component: HomeComponent},
-  { path: 'users', component: UsersComponent, children: [
-    { path: ':id', component: UserComponent},
-    { path: ':id/edit', component: EditUserComponent }
-  ]},
-  { path: 'accounts', component: AccountsComponent},
-  { path: 'accounts/:id/edit', component: EditAccountComponent}
-];
+// const routes: Routes = [
+//   { path: '', component: HomeComponent},
+//   { path: 'users', component: UsersComponent, children: [
+//     { path: ':id', component: UserComponent},
+//     { path: ':id/edit', component: EditUserComponent }
+//   ]},
+//   { path: 'accounts', component: AccountsComponent},
+//   { path: 'accounts/:id/edit', component: EditAccountComponent},
+//   { path: 'not-found', component: Notfound404Component },
+//   //{ path: '**', component: Notfound404Component }
+//   { path: '**', redirectTo: '/not-found' }
+// ];
 
 @NgModule({
   declarations: [
@@ -30,12 +35,14 @@ const routes: Routes = [
     UsersComponent,
     EditUserComponent,
     UserComponent,
-    EditAccountComponent
+    EditAccountComponent,
+    Notfound404Component
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    RouterModule.forRoot(routes)
+    //RouterModule.forRoot(routes)
+    AppRoutingModule
   ],
   providers: [UserService],
   bootstrap: [AppComponent]
