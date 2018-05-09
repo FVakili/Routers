@@ -10,6 +10,7 @@ import { UsersComponent } from './users/users.component';
 import { HomeComponent } from './home/home.component';
 import { AuthGuard } from './auth-guard.service';
 import { CanDeactivateGuard } from './users/edit-user/can-deactivate-guard.service';
+import { ErrorPageComponent } from './error-page/error-page.component';
 
 
 const routes: Routes = [
@@ -24,7 +25,8 @@ const routes: Routes = [
   ]},
   { path: 'accounts', component: AccountsComponent},
   { path: 'accounts/:id/edit', component: EditAccountComponent},
-  { path: 'not-found', component: Notfound404Component },
+  //{ path: 'not-found', component: Notfound404Component },
+  { path: 'not-found', component: ErrorPageComponent, data: {message: 'Page not Found'} },
   //{ path: '**', component: Notfound404Component }
   { path: '**', redirectTo: '/not-found' }
 ];

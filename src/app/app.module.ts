@@ -16,6 +16,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AuthGuard } from './auth-guard.service';
 import { LoginService } from './login-service.service';
 import { CanDeactivateGuard } from './users/edit-user/can-deactivate-guard.service';
+import { ErrorPageComponent } from './error-page/error-page.component';
 
 // const routes: Routes = [
 //   { path: '', component: HomeComponent},
@@ -39,7 +40,8 @@ import { CanDeactivateGuard } from './users/edit-user/can-deactivate-guard.servi
     EditUserComponent,
     UserComponent,
     EditAccountComponent,
-    Notfound404Component
+    Notfound404Component,
+    ErrorPageComponent
   ],
   imports: [
     BrowserModule,

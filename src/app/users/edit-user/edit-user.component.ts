@@ -61,7 +61,7 @@ export class EditUserComponent implements OnInit, OnDestroy, CanComponentDeactiv
     if (!this.allowEdit) {
       return true;
     }
-    if ((this.userId !== this.user.id || this.userName !== this.user.name)&& !this.saveChanges){
+    if ((this.userId !== this.user.id || this.userName !== this.user.name) && !this.saveChanges) {
       return confirm('Do you want to navigate without saving?');
     } else {
       return true;
