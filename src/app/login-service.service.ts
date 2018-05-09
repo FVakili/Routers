@@ -8,6 +8,7 @@ export class LoginService {
 
   isAuthenticated() {
     const promise = new Promise(
+      // tslint:disable-next-line:no-shadowed-variable
       (resolve, reject) => {
         setTimeout(
           () => {

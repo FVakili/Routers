@@ -15,6 +15,7 @@ import { Notfound404Component } from './notfound-404/notfound-404.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AuthGuard } from './auth-guard.service';
 import { LoginService } from './login-service.service';
+import { CanDeactivateGuard } from './users/edit-user/can-deactivate-guard.service';
 
 // const routes: Routes = [
 //   { path: '', component: HomeComponent},
@@ -46,7 +47,7 @@ import { LoginService } from './login-service.service';
     //RouterModule.forRoot(routes)
     AppRoutingModule
   ],
-  providers: [UserService, AuthGuard, LoginService],
+  providers: [UserService, AuthGuard, LoginService, CanDeactivateGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

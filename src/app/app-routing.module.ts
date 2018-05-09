@@ -9,6 +9,7 @@ import { UserComponent } from './users/user/user.component';
 import { UsersComponent } from './users/users.component';
 import { HomeComponent } from './home/home.component';
 import { AuthGuard } from './auth-guard.service';
+import { CanDeactivateGuard } from './users/edit-user/can-deactivate-guard.service';
 
 
 const routes: Routes = [
@@ -19,7 +20,7 @@ const routes: Routes = [
     component: UsersComponent,
     children: [
     { path: ':id', component: UserComponent},
-    { path: ':id/edit', component: EditUserComponent }
+    { path: ':id/edit', canDeactivate: [CanDeactivateGuard] component: EditUserComponent }
   ]},
   { path: 'accounts', component: AccountsComponent},
   { path: 'accounts/:id/edit', component: EditAccountComponent},

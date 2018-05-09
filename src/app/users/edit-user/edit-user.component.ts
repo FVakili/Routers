@@ -4,13 +4,16 @@ import { Subscription } from 'rxjs/Subscription';
 
 import { IUser } from '../../user';
 import { UserService } from '../user.service';
+import { CanComponentDeactivate } from './can-deactivate-guard.service';
 
 @Component({
   selector: 'app-edit-user',
   templateUrl: './edit-user.component.html',
   styleUrls: ['./edit-user.component.css']
 })
-export class EditUserComponent implements OnInit {
+export class EditUserComponent implements OnInit, OnDestroy, CanComponentDeactivate {
+
+
 
   // @ViewChild('userId') userId: ElementRef;
   // @ViewChild ('username') userName: ElementRef;
@@ -22,6 +25,7 @@ export class EditUserComponent implements OnInit {
   user: IUser;
 
   allowEdit = false;
+  saveChanges = false;
 
   constructor( private router: Router,
                private route: ActivatedRoute,
@@ -45,7 +49,27 @@ export class EditUserComponent implements OnInit {
   }
 
   onsave() {
+    this.user.id = this.userId;
+    this.user.name = this.userName;
+    this.userService.updateUser(this.user.id, this.user);
+    this.saveChanges = true;
+    this.router.navigate(['../'], {relativeTo: this.route});
 
+  }
+
+  canDeactivate(): boolean | Observable<boolean> | Promise<boolean>{
+    if (!this.allowEdit) {
+      return true;
+    }
+    if ((this.userId !== this.user.id || this.userName !== this.user.name)&& !this.saveChanges){
+      return confirm('Do you want to navigate without saving?');
+    } else {
+      return true;
+    }
+  }
+
+  ngOnDestroy(): void {
+    this.userSubscription.unsubscribe();
   }
 
 }
