@@ -5,6 +5,7 @@ import { Subscription } from 'rxjs/Subscription';
 import { IUser } from '../../user';
 import { UserService } from '../user.service';
 import { CanComponentDeactivate } from './can-deactivate-guard.service';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-edit-user',

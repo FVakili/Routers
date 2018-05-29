@@ -17,6 +17,8 @@ import { AuthGuard } from './auth-guard.service';
 import { LoginService } from './login-service.service';
 import { CanDeactivateGuard } from './users/edit-user/can-deactivate-guard.service';
 import { ErrorPageComponent } from './error-page/error-page.component';
+import { resolve } from 'url';
+import { UserResolver } from './user-resolver.service';
 
 // const routes: Routes = [
 //   { path: '', component: HomeComponent},
@@ -49,7 +51,7 @@ import { ErrorPageComponent } from './error-page/error-page.component';
     //RouterModule.forRoot(routes)
     AppRoutingModule
   ],
-  providers: [UserService, AuthGuard, LoginService, CanDeactivateGuard],
+  providers: [UserService, AuthGuard, LoginService, CanDeactivateGuard, UserResolver],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
